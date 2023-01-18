@@ -1,0 +1,123 @@
+@use '../abstracts' as *;
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+	padding-top: rem(40);
+	z-index: 1;
+
+	@include breakpoint(medium) {
+		padding-top: rem(64);
+	}
+
+	&__nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__nav-brand {
+		width: rem(144);
+		height: rem(24);
+
+		@include breakpoint(medium) {
+			width: rem(192);
+			height: rem(32);
+		}
+	}
+
+	&__nav-toggle {
+		all: unset;
+
+		@include breakpoint(medium) {
+			display: none;
+		}
+	}
+
+	&__nav-menu {
+		display: none;
+
+		@include breakpoint(medium) {
+			display: block;
+			position: static;
+		}
+	}
+
+	&__nav-items {
+		font-family: $fontHighlight;
+		text-transform: uppercase;
+		font-size: rem(24);
+		display: flex;
+		flex-direction: column;
+		gap: rem(24);
+
+		@include breakpoint(medium) {
+		font-family: $fontMain;
+			text-transform: capitalize;
+			font-size: rem(15);
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			gap: rem(32);
+		}
+	}
+
+	&__nav-link {
+		position: relative;
+
+		@include breakpoint(medium) {
+			&::after {
+				content: '';
+				visibility: hidden;
+				position: absolute;
+				bottom: rem(-8);
+				left: 50%;
+				transform: translateX(-50%);
+				width: rem(24);
+				height: rem(2);
+				background-color: $white;
+				transition: all 150ms ease-in-out;
+			}
+
+			&:hover::after {
+				visibility: visible;
+			}
+		}
+	}
+
+	&__overlay {
+		display: none;
+	}
+
+	&.open {
+		.header__nav-menu {
+			display: block;
+			position: absolute;
+			left: rem(24);
+			top: rem(233);
+		}
+
+		.header__overlay {
+			display: block;
+			position: absolute;
+			inset: 0;
+			background-color: $black;
+			z-index: -1;
+		}
+
+		@include breakpoint(medium) {
+			.header__nav-menu {
+				position: static;
+				display: block;
+			}
+
+			.header__overlay {
+				display: none;
+			}
+		}
+	}
+}

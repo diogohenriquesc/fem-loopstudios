@@ -1,0 +1,2 @@
+"use strict";var header=document.querySelector(".header"),headerToggle=document.querySelector(".header__nav-toggle"),toggleIcon=document.querySelector(".header__nav-toggle-icon");headerToggle.addEventListener("click",(function(){header.classList.contains("open")?(header.classList.remove("open"),toggleIcon.setAttribute("src","./images/icon-hamburger.svg")):(header.classList.add("open"),toggleIcon.setAttribute("src","./images/icon-close.svg"))}));
+//# sourceMappingURL=script.js.map

@@ -1,0 +1,40 @@
+@use  '../abstracts' as *;
+
+h1, h2 {
+  font-family: $fontHighlight;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: $black;
+}
+
+h1 {
+  font-size: rem(40);
+  line-height: rem(38);
+
+  @include breakpoint(medium) {
+    font-size: rem(72);
+    line-height: rem(70);
+  }
+}
+
+h2 {
+  font-size: rem(32);
+  line-height: rem(32);
+
+  @include breakpoint(medium) {
+    font-size: rem(48);
+    line-height: rem(48);
+  }
+}
+
+
+body {
+  font-family: $fontMain;
+  color: $darkGray;
+  font-size: rem(15);
+}
+
+a {
+  text-decoration: none;
+  color: $white;
+}
