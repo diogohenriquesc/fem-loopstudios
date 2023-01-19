@@ -41,13 +41,13 @@
 	}
 
 	&__card {
-    position: relative;
+		position: relative;
 		padding: rem(52) rem(20) rem(20);
 		background-size: cover;
 		background-position: center;
-    color: $white;
-    cursor: pointer;
-
+		color: $white;
+		cursor: pointer;
+		transition: all 150ms ease-in-out;
 
 		@include breakpoint(medium) {
 			padding: rem(180) rem(30) rem(30);
@@ -57,22 +57,23 @@
 			padding: rem(354) rem(20) rem(32) rem(40);
 		}
 
-    &::after {
-      content: '';
-      visibility: hidden;
-      background-color: rgba(255, 255, 255, 0.75071);
-      position: absolute;
-      inset: 0;
-      z-index: 1; 
-    }
+		&::after {
+			content: '';
+			visibility: hidden;
+			background-color: rgba(255, 255, 255, 0.75071);
+			position: absolute;
+			inset: 0;
+			z-index: 0;
+			transition: all 150ms ease-in-out;
+		}
 
-    &:hover {
-      color: $black;
+		&:hover {
+			color: $black;
 
-      &::after {
-        visibility: visible;
-      }
-    }
+			&::after {
+				visibility: visible;
+			}
+		}
 
 		&:nth-child(1) {
 			background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.601863) 100%), url(/images/mobile/image-deep-earth.jpg);
@@ -145,7 +146,8 @@
 		font-family: $fontHighlight;
 		text-align: left;
 		text-transform: uppercase;
-    z-index: 99;
+		position: relative;
+		z-index: 100;
 
 		@include breakpoint(medium) {
 			font-size: rem(32);

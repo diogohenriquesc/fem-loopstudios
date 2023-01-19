@@ -1,0 +1,61 @@
+@use '../abstracts' as *;
+
+.footer {
+	background-color: $black;
+	text-align: center;
+	padding-block: rem(56);
+
+	&__wrapper {
+		@include breakpoint(large) {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-areas:
+				'brand social'
+				'menu copy';
+		}
+	}
+
+	&__brand {
+		display: inline-block;
+		margin-bottom: rem(32);
+
+		@include breakpoint(large) {
+			grid-area: brand;
+      margin-bottom: rem(24);
+		}
+	}
+
+	&__menu {
+		display: flex;
+		flex-direction: column;
+		gap: rem(16);
+		margin-bottom: rem(48);
+
+		@include breakpoint(large) {
+			grid-area: menu;
+      flex-direction: row;
+      gap: rem(32);
+      margin-bottom: 0;
+		}
+	}
+
+	&__social {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: rem(16);
+		margin-bottom: rem(16);
+
+		@include breakpoint(large) {
+			grid-area: social;
+      justify-content: flex-end;
+		}
+	}
+
+	&__copyright {
+		@include breakpoint(large) {
+			grid-area: copy;
+      text-align: end;
+		}
+	}
+}

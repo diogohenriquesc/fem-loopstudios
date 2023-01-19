@@ -1,0 +1,11 @@
+@use '../abstracts' as *;
+
+.brand {
+	width: rem(144);
+	height: rem(24);
+
+	@include breakpoint(medium) {
+		width: rem(192);
+		height: rem(32);
+	}
+}
